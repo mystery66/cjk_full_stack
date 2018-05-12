@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+<body>
+    <div id="root"></div>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525327929710&di=9aa2bd5e32164164df56390f0b71040a&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2439355652%2C1852440864%26fm%3D214%26gp%3D0.jpg
+    " alt="" />
+    
+    <script>
+         // $ jQuery window 唯一的命名空间
+  // $()  $ => function  callback
+  // function() {}   参数
+  (function(g) {
+    // 只有jquery访问到， 外面访问不到
+    // 立即执行， 函数作用域 好处
+    function ElementWrapper(selector) {
+      this.ele = document.querySelector(selector)
+      if (!this.ele)
+        throw new Error('没有这个元素');
+    }
+    // jquery野心, 对原生api的封装
+    // js原生api有很多兼容性问题，选择jquery主要原因
+    ElementWrapper.prototype = {
+      html: function(strHTML) {
+        this.ele.innerHTML = strHTML;
+      }
+    }
+    
+    g.$ = function(param) {
+      if (typeof param === 'function') {
+        document.addEventListener(
+        'DOMContentLoaded', param, false);
+      } else if (typeof param === 'string') {
+        // html? 
+        // innerHTML
+        // 返回结点
+        // console.log(param)
+        // obj.html() 差距
+        // ele.innerHTML 
+        // dom 结点，=>  类
+        const obj = new ElementWrapper(param);
+        // obj.html
+        return obj;
+        // $('#root')
+        //   .innerHTML = '';
+        //   .
+      }
+      // window.
+      // 整个dom树的顶级对象
+      // 事件注册
+      // IE低版本不支持
+      
+    }
+  })(window)
+
+  $(function() {
+    // console.log('dom ready');
+    $('#root').innerHTML = '莹宝最漂亮了!!!';
+  })
+  // image 结点 node
+  // node结点形成了dom树
+  // dom api appendChild .style.background
+  // 原材料 html css 
+  // 树成型了后，触发dom ready事件 
+  // 解析HTML构建DOM Tree
+  // 构建渲染树(解析css)
+  // 布局渲染树
+  // 页面的绘制 render
+  // 网页内容下载完成 资源 
+  // http请求的都是资源
+  // img script   
+  // window.onload
+  // js 下载有阻塞 
+  // 放到底部， 如果需要并不复杂， 为了加速
+  // 选择弃用框架
+  // 页面加载完成
+  // window.onload = function() {
+  //   console.log('页面加载完成');
+  // }
+  // // 早一点， DOM Ready事件
+  // $(function() {
+  //   console.log('DOM ready');
+  // })
+  </script>
+</body>
+</html>
