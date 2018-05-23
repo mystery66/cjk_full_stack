@@ -1,0 +1,6 @@
+<view class="container">
+   <view class="content-hd" bindtap="Change">
+     <text>地址管理</text>
+     
+    </view>
+</view>

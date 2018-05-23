@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="section" name="userName" bindinput="getInfoName">
+        <input placeholder="姓名" auto-focus/>
+    </view>
+    <view class="section" name="userTel" bindinput="getInfoTel">
+        <input placeholder="电话" auto-focus/>
+    </view>
+    <view class="section" name="userAddr" bindinput="getInfoAddr">
+        <input placeholder="详细地址" auto-focus/>
+    </view>
+    <button type="primary" bindtap="primary"> 提交 </button>
+</view>      

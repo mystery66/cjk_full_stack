@@ -1,0 +1,14 @@
+ .section {
+    width: 100%;
+    height: 50rpx;
+    display: flex;
+    position: relative;
+    border-bottom: 1rpx solid #f8f8f8;
+}
+input {
+    height: 50rpx;
+    
+}
+button {
+    width: 50%;
+}

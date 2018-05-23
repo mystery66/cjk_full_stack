@@ -1,0 +1,64 @@
+<!-- index.wxml
+<view class="container">
+  <view class="hd">
+    <view class="hd-prcture">
+      <image src=""/>
+      <navigate>
+        <image src=""/>
+      </navigate>
+    </view>
+    <view class="hd-addto-cart">
+        <text>数量1</text>
+        <text>+</text>
+        <text>加入购物车</text>
+        <image src=""/>
+    </view>
+    <view class="hd-product-info">
+        <text>有货</text>
+        <text>梨花带雨</text>
+        <text>￥0.01</text>
+    </view>
+  </view>
+  <view class="bd">
+    <view class="hd-product-description">
+      <view class="hd-product-description-bar">
+        <text>商品详情</text>
+        <text>商品参数</text>
+        <text>售后保障</text>
+      </view>
+      <view class="hd-product-description-info"></view>
+    </view>
+  </view>
+  </view>
+</view> -->
+<view class="main">
+  <view class="goods-box">
+    <image class="goods-thumb" src="{{goods.image}}"></image>
+    <view class="goods-operation">
+      <text class="goods-operation-num">数量  {{num}}</text>
+      <text class="goods-operation-add" bindtap="addCount">+</text>
+      <text class="goods-operation-cart" bindtap="addToCart">加入购物车</text>
+      <image class="goods-cart-img" src="/image/cart1.png"></image>
+    </view>
+    <image class="to-carts-icon" wx:if="{{show}}" src="/image/cart1.png"/>
+    <view class="goods-stock">{{goods.stock}}</view>
+    <view class="goods-title">{{goods.title}}</view>
+    <view class="goods-price">{{goods.price}}</view>
+    <navigator url="../cart/cart/" open-type="switchTab">
+       <view class="carts-icon {{scaleCart?'on':''}}">
+         <image src="/image/cart2.png"/>
+         <text  class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+       </view> 
+    </navigator>
+  </view>
+  <view class="goods-tab-box">
+    <view  bindtap="Selected" class="goods-tab-nav {{selected==0?'on':''}}" data-index="0" >商品详情</view>
+    <view  bindtap="Selected" class="goods-tab-nav {{selected==1?'on':''}}" data-index="1" >产品参数</view>
+    <view  bindtap="Selected" class="goods-tab-nav {{selected==2?'on':''}}" data-index="2" >售后服务</view>
+    <view class="goods-content"> 
+     <view wx:if="{{selected==0}}">{{goods.detail}}</view>
+     <view wx:if="{{selected==1}}">{{goods.parameter}}</view>
+     <view wx:if="{{selected==2}}">{{goods.service}}</view>
+     </view>
+  </view>
+</view>
