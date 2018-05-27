@@ -1,14 +1,21 @@
-<!--index.wxml-->
-<scroll-view class="navbar" scroll-x="true" scroll-left="{{scrollNavbarLeft}}">
-    <view class="navbar-item {{ navbarArray[item].type }}" id="{{ item }}" wx:for="{{ navbarShowIndexArray }}" catchtap="onTapNavbar">
-        <view class="navbar-item-wrap">{{ navbarArray[item].text }}</view>
-    </view>
-    <view class="navbar-item visibility-hidden">
-        <view class="navbar-item-wrap">空白</view>
-    </view>
-</scroll-view>
-<view class="navbar-arrow-down" catchtap="showChannelSettingModal">
-    <view class="navbar-arrow-down-wrap">
-        <image class="navbar-arrow-icon" src="/images/index/icon_arrow_down.png"></image>
+<view class="container">
+   <view class="navba-arrow-down">
+        <view class="navbar-arrow-down-wrap">
+            <image class="navbar-arrow-icon" src="/images/icon_search.png"></image>
+       </view>
+       </view>
+    <scroll-view class="navar"scroll-x="true" scroll-left="{{}}">
+        <view class="navbar-item {{}}" id="{{}}"wx:for="{{}}" bindtap="clicktopbar">
+            <view class="navbar-item-wrap">{{}}</view>
+        </view>
+
+    </scroll-view>
+    <view class="navba-arrow-down">
+        <view class="navbar-arrow-down-wrap">
+            <image class="navbar-arrow-icon" src="/images/icon_add.png"></image>
+        </view>
+        <view class="navbar-arrow-info">
+            <image class="navbar-arrow-info_icon" src="/images/icon_info.png"></image>
+        </view>
     </view>
 </view>

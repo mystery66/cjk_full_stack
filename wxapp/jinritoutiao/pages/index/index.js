@@ -4,45 +4,10 @@ const app = getApp()
 
 Page({
   data: {
-    navbarArray: [{
-      text: '推荐',
-      type: 'navbar-item-active'
-  }, {
-      text: '热点',
-      type: ''
-  }, {
-      text: '视频',
-      type: ''
-  }, {
-      text: '图片',
-      type: ''
-  }, {
-      text: '段子',
-      type: ''
-  }, {
-      text: '社会',
-      type: ''
-  }, {
-      text: '娱乐',
-      type: ''
-  }, {
-      text: '科技',
-      type: ''
-  }, {
-      text: '体育',
-      type: ''
-  }, {
-      text: '汽车',
-      type: ''
-  }, {
-      text: '财经',
-      type: ''
-  }, {
-      text: '搞笑',
-      type: ''
-    }
-    ]
-
+    tabs: ["选项一", "选项二", "选项三"],
+    activeIndex: 1,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
   //事件处理函数
   bindViewTap: function() {
