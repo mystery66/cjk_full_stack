@@ -1,0 +1,14 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+    <view class="weui__hd">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="请输入关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <view class="weui-cancel__search">取消</view>
+    </view>
+    
+</view>
