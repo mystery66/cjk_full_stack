@@ -1,0 +1,32 @@
+<view class="container">   
+  <view class="main"> 
+    <view class="weui-cell__hd" >
+        <view class="header">
+          <image class="avatar" src='{{userInfo.avatarUrl}}'></image>  
+        </view>
+    </view>
+    <view class="weui-cell__bd-nickname">{{userInfo.nickName}}</view>  
+  </view>
+  <view class="middle">
+    <view class="weui-cell__left">
+      <text>0</text>
+      <text>关注</text>
+    </view>
+    <view class="weui-cell__right">
+      <text>0</text>
+      <text>粉丝</text>
+    </view>
+  </view>
+  <view class="ft">
+    <view class="weui-cell-left">我的收藏</view>
+    <text>暂无收藏</text>
+  </view>
+</view>
+           
+     
+
+
+
+
+
+
