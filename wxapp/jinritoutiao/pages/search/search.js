@@ -5,12 +5,47 @@ Page({
    * 页面的初始数据
    */
   data: {
+    inputVal: '',
+    historyInfo: ''
   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  bindInput (e) {
+    console.log(e);
+     let inputVal = this.data.inputval;
+    this.setData({
+    inputVal: e.detail.value,
+    
+    })
+    console.log(inputVal)
+    wx.setStorage({
+      key:"historyInfo",
+     
+      
+    })
+  },
+  cancel (e) {
+    
+    wx.navigateBack({  
+      delta: 1  
+   })  
+  },
+deleteHistory (e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否删除历史记录',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   onLoad: function (options) {
   
   },

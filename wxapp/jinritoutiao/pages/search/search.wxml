@@ -3,12 +3,15 @@
     <view class="weui__hd">
         <view class="weui-search-bar__box">
             <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-            <input type="text" class="weui-search-bar__input" placeholder="请输入关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                <icon type="clear" size="14"></icon>
-            </view>
+            <input type="text" class="weui-search-bar__input" placeholder="请输入关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="bindInput" />
         </view>
-        <view class="weui-cancel__search">取消</view>
+        <view class="weui-cancel__search" bindtap="cancel">取消</view>
     </view>
-    
+    <view class="weui__bd">
+        <view class="weui-history">
+            <view class="weui-history__left">删除历史</view>
+            <image class="weui-history__right" src="/images/icon_delete.png" bindtap="deleteHistory"></image>
+        </view>
+        <view class="weui-search-history">{{historyInfo}}</view>
+    </view>
 </view>
