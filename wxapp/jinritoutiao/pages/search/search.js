@@ -6,7 +6,39 @@ Page({
    */
   data: {
     inputVal: '',
-    historyInfo: ''
+    historyInfo: [],
+    hotwords:[{
+      text: '赵芸蕾洪玮结婚',
+      },
+      {
+        text: '法国队3-1意大利',
+        },
+      {
+        text: '以军打死巴志愿者',
+      },
+      {
+        text: '朱雨玲出局',
+      },
+      {
+        text: '台北发生停电事故',
+      },
+      {
+        text: '苹果拒出席听证会',
+      },
+      {
+        text: '深圳村霸被逮捕',
+      },
+      {
+        text: 'G1加时勇士胜骑士',
+      },
+      {
+        text: '扳笋发现滑坡征兆',
+      },
+      {
+        text: '大张高铁全线铺轨',
+      },
+
+    ]
   
   },
 
@@ -14,18 +46,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   bindInput (e) {
-    console.log(e);
-     let inputVal = this.data.inputval;
-    this.setData({
-    inputVal: e.detail.value,
-    
-    })
-    console.log(inputVal)
-    wx.setStorage({
-      key:"historyInfo",
-     
+     let inputVal = this.data.inputVal;
+     let historyInfo = this.data.historyInfo;
+     inputVal = e.detail.value;
+     historyInfo = inputVal;
+     this.setData({
+      inputVal,
+      historyInfo
+      })
+   
       
-    })
   },
   cancel (e) {
     
@@ -37,9 +67,12 @@ deleteHistory (e) {
     wx.showModal({
       title: '提示',
       content: '是否删除历史记录',
-      success: function(res) {
+      success: (res)=> {
         if (res.confirm) {
-          console.log('用户点击确定')
+           let historyInfo = this.data.historyInfo;
+           let a=[];
+           historyInfo =a;
+          
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
