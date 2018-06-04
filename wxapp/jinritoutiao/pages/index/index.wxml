@@ -1,21 +1,37 @@
 <view class="container">
-   <view class="navba-arrow-down">
-        <view class="navbar-arrow-down-wrap">
-            <image class="navbar-arrow-icon" src="/images/icon_search.png"></image>
+   <view class="topbar">
+        <view class="topbar-icon left" bindtap="searchInfo">
+            <image class="topbar-icon__img" src="/images/icon_search.png"></image>
        </view>
-       </view>
-    <scroll-view class="navar"scroll-x="true" scroll-left="{{}}">
-        <view class="navbar-item {{}}" id="{{}}"wx:for="{{}}" bindtap="clicktopbar">
-            <view class="navbar-item-wrap">{{}}</view>
+        <scroll-view class="topbar-scroll"scroll-x="true" >
+            <view class="topbar-scroll-item {{selected === index?'on':''}}" wx:for="{{topbar}}" 
+             wx:key="{{id}}"bindtap="Selected" data-index="{{item.id}}">
+                <view class="topbar-item-wrap">{{item.text}}</view>
+            </view>
+        </scroll-view>
+        <view class="topbar-icon right">
+          <view class="topbar-addmore-icon__img" bindtap="addChannel">
+            <image class="topbar-icon__img" src="/images/icon_add.png"></image>
+          </view>
+          <view class="topbar-userinfo-icon__img" bindtap="getInfo">
+            <image class="topbar-icon__img" src="/images/icon_info.png"></image>
+          </view>
         </view>
-
+    </view>
+    <scroll-view class="contents" scroll-y="true" hidden="{{activeIndex != index}}">
+      <view class="content" wx:for="{{Contents}}" wx:key="{{id}}">
+        <view class="content-item-wrap" wx:if="{{selected == index }}">{{item.title}} </view>
+      </view>
     </scroll-view>
-    <view class="navba-arrow-down">
-        <view class="navbar-arrow-down-wrap">
-            <image class="navbar-arrow-icon" src="/images/icon_add.png"></image>
+    <view class="addchannel" hidden="{{hidden}}">
+      <view class="back" bindtap="returnIndex"><image src="/images/icon_back.png"></image></view>
+      <scroll-view class="channel-scroll"scroll-y="true" >
+        <view class="channel-description">我的频道 <text>选中不放可以拖拽顺序</text></view>
+        <view class="channel-choose" wx:for="{{topbar}}" wx:key="{{index}}" ><text>{{item.text}}</text></view>
+        <view class="otherchannel-add">
+            <view class="channel-description other">其他频道 <text>点击添加频道</text></view>
         </view>
-        <view class="navbar-arrow-info">
-            <image class="navbar-arrow-info_icon" src="/images/icon_info.png"></image>
-        </view>
+        <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{index}}" ><text>{{item.text}}</text></view>
+      </scroll-view>
     </view>
 </view>
