@@ -1,12 +1,10 @@
 <view class="container">   
   <view class="main"> 
     <view class="weui-cell__hd" >
-        <view class="header">
-          <image class="avatar" src='{{userInfo.avatarUrl}}'></image>  
-        </view>
+        <image class="avatar" src='{{userInfo.avatarUrl}}'  mode="cover"></image> 
     </view>
-    <view class="weui-cell__bd-nickname">{{userInfo.nickName}}</view>  
-  </view>
+   <text class="nickname">{{userInfo.nickName}}</text>
+    </view>
   <view class="middle">
     <view class="weui-cell__left">
       <text>0</text>

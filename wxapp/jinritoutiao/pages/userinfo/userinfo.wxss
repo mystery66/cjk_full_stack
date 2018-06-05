@@ -10,11 +10,11 @@ page {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  position: relative;
+  
   
 }
  .main {
-  height: 330rpx;
+  height: 220rpx;
   width: 100%;
   background-color: #444444;
   display: flex;
@@ -28,33 +28,28 @@ page {
   padding: 0;
   
   }
-.weui-cell__hd .header {
- 
-  border-color: #000;
-  width: 100%;
-  height: 100%;
-}
-.weui-cell__hd .header .avatar {
+/*  */
+.weui-cell__hd  .avatar {
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
-  border: 1px solid #fefeff;
+  border: 2px solid #ffffff;
+ 
 }
 
 
-.weui-cell__bd-nickname{
-  width: 100rpx;
-  height: 100rpx;
-  align-items: center;
-  line-height: 230rpx;
+.main .nickname{
+  margin-left: 30rpx;
+  line-height: 220rpx;
+  
+  
+ 
   font-size: 18px;
   color: #ffffff;
  }
 .middle {
   width: 100%;
   height: 150rpx;
-  position: absolute;
-  top: 230rpx;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #d9d9d9; 
@@ -62,17 +57,20 @@ page {
  
 }
 .middle .weui-cell__left {
-  position: relative;
-  left: 200rpx;
+float: left;
+margin-left: 20%;
+width: 20%;
 }
 .middle .weui-cell__right {
-  position: relative;
-  left: 435rpx;
+  float: right;
+  margin-left: 20%;
+  width: 20%;
 }
 .middle text {
   display: block;
+  
   text-align: center;
-  font-size: 14px;
+  font-size: 11pt;
 }
 .ft {
   height: 230rpx;
