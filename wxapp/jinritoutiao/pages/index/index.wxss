@@ -11,11 +11,13 @@ page {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e7e7e7;
+  z-index: 10;
+  background: #ffffff;
   
 }
 
 .topbar-icon.left {
- 
+
   width: 80rpx;
   height: 80rpx;
   float: left;
@@ -54,16 +56,20 @@ page {
   height: 80rpx;
   font-size: 16px;
   white-space: nowrap;
+  background: #ffffff;
 }
 .topbar-scroll-item {
   display: inline-block;
-  width: calc(750rpx / 7);
-  height: 100%;
+  width: 70rpx;
+  height: 95%;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  line-height: 80rpx;
   
  
 }
 .topbar-scroll-item.on {
-  z-index: 10;
+  
   color: red;
   border-bottom: 1px solid red;
  
@@ -72,20 +78,19 @@ page {
 .topbar-item-wrap {
   line-height: 80rpx;
   text-align: center;
+  font-size: 12pt;
   
 }
-.contents {
+.swiper-channel-content {
   height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 80rpx;
- 
+  padding-top: 80rpx;
 }
-.content {
-  height: 200rpx;
-  text-align: center;
-  margin: auto 0;
-  border-bottom: 1px solid #f8f8f8;
+.swiper-item {
+  display: block;
+  overflow: hidden;
+}
+.scroll-view {
+  height: 100%;
 }
 .addchannel {
  
@@ -118,8 +123,9 @@ page {
 .channel-scroll {
   position: fixed;
   
-  height: 100%;
+  height: 1100rpx;
   width: 100%;
+  
 }
 .channel-description {
   font-size: 20px;
@@ -127,6 +133,7 @@ page {
 .channel-description text {
   font-size: 14px;
   color: #e2e2e2;
+  
 }
 
 .channel-choose {
@@ -138,7 +145,7 @@ page {
   margin: 2.5%;
   text-align: center;
   border-radius: 5%;
-  white-space: nowrap;
+ 
 
 }
  .channel-choose text {
@@ -147,4 +154,5 @@ page {
 }
 .channel-description.other {
   margin-top: 40rpx;
+ 
 }

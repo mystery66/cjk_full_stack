@@ -4,8 +4,8 @@
             <image class="topbar-icon__img" src="/images/icon_search.png"></image>
        </view>
         <scroll-view class="topbar-scroll"scroll-x="true" >
-            <view class="topbar-scroll-item {{selected === index?'on':''}}" wx:for="{{topbar}}" 
-             wx:key="{{id}}"bindtap="Selected" data-index="{{item.id}}">
+            <view class="topbar-scroll-item {{curIndex === index?'on':''}}" wx:for="{{topbar}}" 
+             wx:key="{{id}}"bindtap="Selected" data-index="{{index}}">
                 <view class="topbar-item-wrap">{{item.text}}</view>
             </view>
         </scroll-view>
@@ -18,20 +18,44 @@
           </view>
         </view>
     </view>
-    <scroll-view class="contents" scroll-y="true" hidden="{{activeIndex != index}}">
-      <view class="content" wx:for="{{Contents}}" wx:key="{{id}}">
-        <view class="content-item-wrap" wx:if="{{selected == index }}">{{item.title}} </view>
-      </view>
-    </scroll-view>
     <view class="addchannel" hidden="{{hidden}}">
       <view class="back" bindtap="returnIndex"><image src="/images/icon_back.png"></image></view>
-      <scroll-view class="channel-scroll"scroll-y="true" >
+      <scroll-view class="channel-scroll"scroll-y="true" scrollTop="{{scrollTop}}"  >
         <view class="channel-description">我的频道 <text>选中不放可以拖拽顺序</text></view>
         <view class="channel-choose" wx:for="{{topbar}}" wx:key="{{index}}" ><text>{{item.text}}</text></view>
         <view class="otherchannel-add">
             <view class="channel-description other">其他频道 <text>点击添加频道</text></view>
-        </view>
-        <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{index}}" ><text>{{item.text}}</text></view>
+            <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{index}}" data-index="{{item.index}}" bindtap="addChannelTitle" >
+               <text>{{item.text}}</text>
+            </view>
+      </view>
       </scroll-view>
     </view>
+      <swiper class="swiper-channel-content"  duration="{{duration}}" circular="{{Circular}}" bindchange="onSwiperChange" current="{{swiperActiceIndex}}">
+        <swiper-item >
+         <scroll-view class="articles" scroll-y="true">
+           <view class="aritice-detail">
+             <text class="aritice-detail-title">90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样</text>
+             <image class="ariticle-detail-image"    src="https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3"></image>
+          </view>
+        </scroll-view>
+        </swiper-item>
+        <swiper-item >
+            <scroll-view class="articles" scroll-y="true">
+              <view class="aritice-detail">
+                <text class="aritice-detail-title">90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样</text>
+                <image class="ariticle-detail-image"    src="https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3"></image>
+             </view>
+           </scroll-view>
+           </swiper-item>
+           <swiper-item >
+              <scroll-view class="articles" scroll-y="true">
+                <view class="aritice-detail">
+                  <text class="aritice-detail-title">90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样</text>
+                  <image class="ariticle-detail-image"    src="https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3"></image>
+               </view>
+             </scroll-view>
+             </swiper-item>
+    </swiper>
+    
 </view>
