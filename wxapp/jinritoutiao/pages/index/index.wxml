@@ -33,19 +33,37 @@
     </view>
       <swiper class="swiper-channel-content"  duration="{{duration}}" circular="{{Circular}}" bindchange="onSwiperChange" current="{{swiperActiceIndex}}">
         <swiper-item >
-         <scroll-view class="articles" scroll-y="true">
-           <view class="aritice-detail">
-             <text class="aritice-detail-title">90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样</text>
-             <image class="ariticle-detail-image"    src="https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3"></image>
-          </view>
+         <scroll-view class="ariticles" scroll-y="true">
+           <view class="ariticle-detail" wx:for="{{Recommend}}" wx:key="{{item.id}}" bindtap="toSeeNews">
+             <view class="ariticle-detail-left">
+               <view class="ariticle-detail-title">{{item.title}}</view>
+               <view class="ariticle-detail-others">
+               <text class="ariticle-detail-type">{{item.type}}</text>
+               <text class="ariticle-detail-from">{{item.from}}</text>
+               <text class="ariticle-detail-num">{{item.num}}</text>
+              </view>
+             </view> 
+             <view class="ariticle-detail-right">
+              <image class="ariticle-detail-image" src="{{item.image}}"></image>
+             </view>
+            </view>
         </scroll-view>
         </swiper-item>
         <swiper-item >
             <scroll-view class="articles" scroll-y="true">
-              <view class="aritice-detail">
-                <text class="aritice-detail-title">90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样</text>
-                <image class="ariticle-detail-image"    src="https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3"></image>
-             </view>
+              <view class="ariticle-detail" wx:for="{{Hot}}" wx:key="{{item.id}}" >
+                <view class="ariticle-detail-left">
+                  <view class="ariticle-detail-title">{{item.title}}</view>
+                  <view class="ariticle-detail-others">
+                  <text class="ariticle-detail-type">{{item.type}}</text>
+                  <text class="ariticle-detail-from">{{item.from}}</text>
+                  <text class="ariticle-detail-num">{{item.num}}</text>
+                 </view>
+                </view> 
+                <view class="ariticle-detail-right">
+                 <image class="ariticle-detail-image"    src="{{item.image}}"></image>
+                </view>
+               </view>
            </scroll-view>
            </swiper-item>
            <swiper-item >

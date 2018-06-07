@@ -116,32 +116,6 @@ Page({
   },
 ],
  
-channels: [{
-  channel:[{id: 0,
-   detail:{title: '90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样',
-    image: 'https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3',
-  },
-  detail:{title: '90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样',
-  images:{image: 'https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3',
-          image: 'https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3',
-  }
-}
-  }],
-  channel:[{id: 1,
-    detail:{ num: 1,
-      title: '90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样',
-      image: 'https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3',
-   },
-   detail:{title: '90年前日本人拍摄的天下第一佛：乐山大佛，看看和现在有啥不一样',
-   image: 'https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3',
-           image: 'https://p1.pstatp.com/list/190x124/pgc-image/15260958042439138c972f3',
-   
- }
-   }],
-  
-    
-          }],
-  
 
 
   curIndex: 0,
@@ -150,6 +124,9 @@ channels: [{
   Circular: true,
   hidden: true,
   scrollTop: 0,
+  swiperActiceIndex: 0,
+  Recommend: [],
+  Hot: []
 
 },
  
@@ -167,15 +144,25 @@ channels: [{
   },
   Selected(e) {
     
-   ;
-   
-    this.setData({
-      curIndex:e.currentTarget.dataset.index
+  this.setData({
+      curIndex:e.currentTarget.dataset.index,
+      swiperActiceIndex: e.currentTarget.dataset.index
      
     })
   },
+  onSwiperChange (e) {
+  //  console.log (e);
+   let swiperActiceIndex = this.data.swiperActiceIndex;
+   swiperActiceIndex = e.detail.current;
+   let  curIndex = this.data.curIndex;
+   curIndex = swiperActiceIndex;
+   this.setData({
+     swiperActiceIndex,
+     curIndex
+   })
+  },
   addChannel(e) {
-      console.log(e);
+      // console.log(e);
   let hidden = !this.data.hidden;
    this.setData({
        hidden
@@ -188,10 +175,28 @@ channels: [{
     })
   },
   addChannelTitle(e) {
- console.log(e);
+//  console.log(e);
+  },
+  toSeeNews(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/news/news'
+    })
   },
   onLoad: function () {
     
   },
- 
+  onReady: function () {
+    wx.request({
+      url: 'https://www.easy-mock.com/mock/5b13a047c5450f078273c500/jinritoutiao',
+      success: (res) => {
+        // console.log(res);
+        this.setData({
+          Recommend: res.data.data.Recommend,
+          Hot: res.data.data.Hot
+        })
+
+      }
+    })
+  },
 })
