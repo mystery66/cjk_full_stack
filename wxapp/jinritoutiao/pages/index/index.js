@@ -115,6 +115,63 @@ Page({
     id: 22
   },
 ],
+video: [
+  {
+  id: 0,
+  image: 'http://wx2.sinaimg.cn/mw690/006Bh1yWgy1fs3ohgau1qj30u00gsgv4.jpg',
+  detail:[{
+    image: '/images/icon_videoinfo.jpg',
+    from: '乐娱播报',
+    playback: '42万次播放',
+    icon: '/images/icon_videoicon.png',
+    num: '231'
+}]
+},
+{
+  id: 1,
+  image: 'http://wx4.sinaimg.cn/mw690/006Bh1yWgy1fs3nxfvsa7j30tw0h0qc4.jpg',
+  detail:[{
+    image: '/images/icon_videoinfo.jpg',
+    from: '乐娱播报',
+    playback: '42万次播放',
+    icon: '/images/icon_videoicon.png',
+    num: '231'
+}]
+},
+{
+  id: 2,
+  image: 'http://wx1.sinaimg.cn/mw690/006Bh1yWgy1fs3nx4w3y5j30ts0gwakq.jpg',
+  detail:[{
+    image: '/images/icon_videoinfo.jpg',
+    from: '乐娱播报',
+    playback: '42万次播放',
+    icon: '/images/icon_videoicon.png',
+    num: '231'
+}]
+},
+{
+  id: 3,
+  image: 'http://wx2.sinaimg.cn/mw690/006Bh1yWgy1fs3nwmb5ehj30qo0f0769.jpg',
+  detail:[{
+    image: '/images/icon_videoinfo.jpg',
+    from: '乐娱播报',
+    playback: '42万次播放',
+    icon: '/images/icon_videoicon.png',
+    num: '231'
+}]
+},
+{
+  id: 4,
+  image: 'http://wx1.sinaimg.cn/mw690/006Bh1yWgy1fs3nvom0u1j30u00gyalv.jpg',
+  detail:[{
+    image: '/images/icon_videoinfo.jpg',
+    from: '乐娱播报',
+    playback: '42万次播放',
+    icon: '/images/icon_videoicon.png',
+    num: '231'
+}]
+},
+],
  
 
 
@@ -181,6 +238,12 @@ Page({
     console.log(e);
     wx.navigateTo({
       url: '/pages/news/news'
+    })
+  },
+  videoplay(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/videoplay/videoplay'
     })
   },
   onLoad: function () {
