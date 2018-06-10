@@ -1,0 +1,61 @@
+<view class="container">
+<view class="videoplay">
+    <video class="myvideo" src="{{video}}" 
+       binderror="videoErrorCallback" danmu-list="{{danmuList}}" 
+       enable-danmu danmu-btn controls></video>
+    </view>
+    <scroll-view class="video-detail" scroll-y="true">
+        <view class="video-detail-title">
+        <text class="detail-title">论演技最服大傻，聚众赌博被警察抓，大傻立马装病浑身发抖</text>
+        <view class="detail-title-tri"></view>
+        </view>
+       <view class="video-content-smalltitle">
+       论演技最服大傻，聚众赌博被警察抓，大傻立马装病浑身发抖
+      </view>
+      <view class="video-info">
+            <view class="video-info-left">
+              <image class="video-from-img" src="{{image}}"></image>
+              
+              </view>
+            <view class="video-from-middle">
+                
+                <view class="video-from-publisher">{{publisher}}</view>
+                <image class="video-from-icon" src="{{icon}}"></image>
+                <view class="video-from-time">
+                  <text class="video-publish-date">6-6</text>
+                  <text class="video-publish-detailtime">9:30</text>
+                </view>
+              </view>
+              </view>
+              <view class="video-comment">
+                    <view class="video-comment-tilte">
+                            热门评论
+                        </view>
+                        <view class="video-comment-content" wx:for="{{comment}}" wx:key="{{id}}">
+                            <image class="video-comment-userimg" src="{{item.image}}"></image>
+                            <view class="video-comment-username">{{item.username}}</view>
+                            <view class="video-comment-praise">
+                                <image class="video-comment-praise-icon" src="/images/icon_praise.png"></image>
+                                <view class="video-comment-num">{{item.num}}</view>
+                            </view>
+                            <view class="video-comment-usercomment">{{item.usercomment}}</view>
+                            <view class="video-comment-time">{{item.time}}</view>
+                        </view>
+                        <view class="video-comment-nomore">已显示全部评论</view>
+                
+                    </view>
+                     <view class="comment-bar">
+                             <view class="comment-bar-left">
+                                 <image class="comment-bar-icon" src="/images/icon_inputicon.png"></image>
+                                <input class="comment-bar-input"type="text" placeholder="写评论..."/>
+                            </view>
+                             <view class="comment-bar-right">
+                                 <image class="comment-bar-img" src="/images/icon_videoicon.png"></image>
+                                 <image class="comment-bar-img" src="/images/icon_star.png"></image>
+                                 <image class="comment-bar-img" src="/images/icon_share1.png"></image>
+                                 <image class="comment-bar-img" src="/images/icon_pyq.png"></image>
+                             </view>
+                             </view>
+
+    </scroll-view>
+</view>
