@@ -52,10 +52,10 @@ page {
 }
 .weui-cancel__search {
     width: 10%;
-    font-size: 14px;
+    font-size: 12pt;
     margin:auto 5% auto 5%;
     text-align: center;
-    color: #7abbe2;
+    color: #266893;
 }
 .weui__bd {
     width: 100%;
@@ -139,5 +139,6 @@ page {
     width: 350rpx;
     height: 90rpx;
     line-height: 90rpx;
+    font-size: 16px;
     overflow: hidden;
 } 

@@ -46,10 +46,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   bindInput (e) {
+    console.log(e);
      let inputVal = this.data.inputVal;
      let historyInfo = this.data.historyInfo;
      inputVal = e.detail.value;
      historyInfo = inputVal;
+     console.log(historyInfo);
      this.setData({
       inputVal,
       historyInfo
@@ -69,9 +71,13 @@ deleteHistory (e) {
       content: '是否删除历史记录',
       success: (res)=> {
         if (res.confirm) {
-           let historyInfo = this.data.historyInfo;
-           let a=[];
-           historyInfo =a;
+         const a=[];
+          this.data.historyInfo=a;
+          let historyInfo = this.data.historyInfo;
+            
+           this.setData({
+             historyInfo
+           })
           
         } else if (res.cancel) {
           console.log('用户点击取消')
