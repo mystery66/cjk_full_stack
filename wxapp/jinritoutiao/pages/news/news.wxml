@@ -57,7 +57,7 @@
     <view class="comment-bar">
             <view class="comment-bar-left">
                 <image class="comment-bar-icon" src="/images/icon_inputicon.png"></image>
-                <input class="comment-bar-input"type="text" placeholder="写评论..."/>
+                <input class="comment-bar-input"type="text" placeholder="写评论..." bindconfirm="addComment" value="{{inputValue}}"/>
             </view>
             <view class="comment-bar-right">
                 <image class="comment-bar-img" src="/images/icon_videoicon.png"></image>

@@ -1,4 +1,5 @@
 // pages/news/news.js
+const app = getApp()
 Page({
 
   /**
@@ -6,7 +7,7 @@ Page({
    */
   data: {
     news: [{
-      header:'  习近平：我们比历史上任何时期都更需要建设世界科技强国',
+      header: '习近平：我们比历史任何时期都更需要建设世界科技强国',
       image: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2729126594,811067681&fm=27&gp=0.jpg',
       icon: '/images/icon_newsicon.png',
       publisher: '人民网',
@@ -57,7 +58,12 @@ Page({
       usercomment: '干得漂亮',
       time: '06-08  05:30',
     }],
+    userInfo:{  
+      avatarUrl:"",//用户头像  
+      nickName:"",//用户昵称  
+    },
     adjust: false,
+    inputValue: ''
   },
   
   bigger(e) {
@@ -71,10 +77,32 @@ Page({
       adjust:false
     })
   },
+  addComment(e) {
+    let inputValue = this.data.inputValue;
+    let comment = this.data.comment;
+    const  userInfo = app.globalData.userInfo;
+    inputValue = e.detail.value;
+    // console.log(app.globalData.userInfo);
+    const image = userInfo.avatarUrl, username = userInfo.nickName, num = 0, usercomment = inputValue, time='刚刚';
+    let arr =[{image, username, num, usercomment, time}];
+    comment.push(arr[0]);
+    console.log(comment);
+    this.setData({
+      comment,
+      inputValue: null
+    })
+   
+
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+    /**  
+     * 获取用户信息  
+     */  
   
   },
 

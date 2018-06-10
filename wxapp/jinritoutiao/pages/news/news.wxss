@@ -143,7 +143,7 @@
 .news-comment-nomore {
     margin: 20rpx 0 150rpx 100rpx;
     font-size: 10pt;
-    color: #e8e8e8;
+    color: #999999;
 }    
 .comment-bar {
     position: fixed;
