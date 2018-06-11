@@ -41,137 +41,6 @@ Page({
       text: '搞笑',
       id: '11'
   }],
-  addchannel: [{
-    text: '历史',
-   id: '0'
-   }, {
-    text: '健康',
-    id: '1'
-   }, {
-    text: '国际',
-    id: '2'
-   }, {
-    text: '养儿',
-    id: '3'
-   }, {
-    text: '房产',
-    id: '4'
-  }, {
-    text: '数码',
-   id: '5'
-  }, {
-    text: '手机',
-    id: '6'
-  }, {
-    text: '科技',
-   id: '7'
-}, {
-    text: '美食',
-    id: '8'
-  }, {
-    text: '养生',
-    id: '9'
-  }, {
-    text: '情感',
-    id: '10'
-  }, {
-    text: '家居',
-    id: '11'
-  },
-  {
-    text: '文化',
-    id: '12'
-  }, {
-    text: '科学',
-    id: '13'
-  }, {
-    text: '动漫',
-    id: '14'
-  }, {
-    text: '星座',
-    id: '15'
-  },
-  {
-    text: '宠物',
-    id: '16'
-  }, {
-    text: '彩票',
-    id: '17'
-  }, {
-    text: '正能量',
-    id: 18
-  }, {
-    text: '传媒',
-    id: 19
-  },
-  {
-    text: '故事',
-    id: 20
-  }, {
-    text: '精选',
-    id: 21
-  }, {
-    text: '收藏',
-    id: 22
-  },
-],
-video: [
-  {
-  id: 0,
-  image: 'http://wx2.sinaimg.cn/mw690/006Bh1yWgy1fs3ohgau1qj30u00gsgv4.jpg',
-  detail:[{
-    image: '/images/icon_videoinfo.jpg',
-    from: '乐娱播报',
-    playback: '42万次播放',
-    icon: '/images/icon_videoicon.png',
-    num: '231'
-}]
-},
-{
-  id: 1,
-  image: 'http://wx4.sinaimg.cn/mw690/006Bh1yWgy1fs3nxfvsa7j30tw0h0qc4.jpg',
-  detail:[{
-    image: '/images/icon_videoinfo.jpg',
-    from: '乐娱播报',
-    playback: '42万次播放',
-    icon: '/images/icon_videoicon.png',
-    num: '231'
-}]
-},
-{
-  id: 2,
-  image: 'http://wx1.sinaimg.cn/mw690/006Bh1yWgy1fs3nx4w3y5j30ts0gwakq.jpg',
-  detail:[{
-    image: '/images/icon_videoinfo.jpg',
-    from: '乐娱播报',
-    playback: '42万次播放',
-    icon: '/images/icon_videoicon.png',
-    num: '231'
-}]
-},
-{
-  id: 3,
-  image: 'http://wx2.sinaimg.cn/mw690/006Bh1yWgy1fs3nwmb5ehj30qo0f0769.jpg',
-  detail:[{
-    image: '/images/icon_videoinfo.jpg',
-    from: '乐娱播报',
-    playback: '42万次播放',
-    icon: '/images/icon_videoicon.png',
-    num: '231'
-}]
-},
-{
-  id: 4,
-  image: 'http://wx1.sinaimg.cn/mw690/006Bh1yWgy1fs3nvom0u1j30u00gyalv.jpg',
-  detail:[{
-    image: '/images/icon_videoinfo.jpg',
-    from: '乐娱播报',
-    playback: '42万次播放',
-    icon: '/images/icon_videoicon.png',
-    num: '231'
-}]
-},
-],
  
 
 
@@ -183,7 +52,10 @@ video: [
   scrollTop: 0,
   swiperActiceIndex: 0,
   Recommend: [],
-  Hot: []
+  Hot: [],
+  Refresh: false,
+  RefreshNews: false,
+  
 
 },
  
@@ -200,7 +72,7 @@ video: [
     })
   },
   Selected(e) {
-    
+    console.log(e);
   this.setData({
       curIndex:e.currentTarget.dataset.index,
       swiperActiceIndex: e.currentTarget.dataset.index
@@ -208,7 +80,7 @@ video: [
     })
   },
   onSwiperChange (e) {
-  //  console.log (e);
+    // console.log (e);
    let swiperActiceIndex = this.data.swiperActiceIndex;
    swiperActiceIndex = e.detail.current;
    let  curIndex = this.data.curIndex;
@@ -218,6 +90,7 @@ video: [
      curIndex
    })
   },
+  
   addChannel(e) {
       // console.log(e);
   let hidden = !this.data.hidden;
@@ -232,19 +105,90 @@ video: [
     })
   },
   addChannelTitle(e) {
-//  console.log(e);
+    console.log(e);
+    let addchannel = this.data.addchannel;
+    let topbar = this.data.topbar;
+    var item = e.currentTarget.dataset.item; 
+    console.log(item);
+    topbar.push((addchannel.splice(item,1))[0]);
+    // console.log(topbar);
+     console.log(addchannel);
+    // console.log((addchannel.splice(index,1))[0])
+    wx.showModal({
+      title: '提示',
+      content: '是否添加此频道',
+      success: (res) => {
+        if (res.confirm) {
+          this.setData({
+            topbar,
+            addchannel
+          })
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+  },
+  minusChannelTitle(e) {
+    // console.log(e);
+    console.log(e);
+    let addchannel = this.data.addchannel;
+    let topbar = this.data.topbar;
+    var index = e.currentTarget.dataset.index; 
+    // console.log(index);
+    addchannel.push((topbar.splice(index,1))[0]);
+    // console.log(topbar);
+    console.log(addchannel);
+    if ( index == 0) {
+      return false;
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '是否删除此频道',
+        success: (res) => {
+          if (res.confirm) {
+            this.setData({
+              topbar,
+              addchannel
+            })
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+    
+    
+   
   },
   toSeeNews(e) {
-    console.log(e);
+    
     wx.navigateTo({
       url: '/pages/news/news'
     })
   },
   videoplay(e) {
-    console.log(e);
+    // console.log(e);
     wx.navigateTo({
       url: '/pages/videoplay/videoplay'
     })
+  },
+  ToRefresh(e) {
+    let Refresh = this.data.Refresh;
+    Refresh = !Refresh;
+    console.log(Refresh);
+   this.setData({
+    Refresh
+  })
+   setTimeout(() => {
+     this.setData({
+       Refresh:!Refresh,
+     })
+   }, 1000);
+  console.log(Refresh)
   },
   onLoad: function () {
     
@@ -256,7 +200,9 @@ video: [
         // console.log(res);
         this.setData({
           Recommend: res.data.data.Recommend,
-          Hot: res.data.data.Hot
+          Hot: res.data.data.Hot,
+          video: res.data.data.video,
+          addchannel: res.data.data.addchannel,
         })
 
       }

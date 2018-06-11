@@ -146,6 +146,7 @@ page {
   margin-top: 40rpx;
  
 }
+
 .swiper-channel-content {
   height: 100%;
   padding-top: 80rpx;
@@ -275,3 +276,40 @@ page {
   margin-right: 20rpx;
   vertical-align: middle;
 }
+.refresh {
+  position: fixed;
+  height:60rpx;
+  width: 60rpx;
+  bottom: 100rpx;
+  right: 50rpx;
+  background: #ffffff;
+  border-radius: 100%;
+  padding: 10rpx;
+  z-index: 100;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.1),0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.refresh-button {
+  height: 60rpx;
+  width: 60rpx;
+}
+.refresh-button.rotate {
+ animation: refreshrotate 1s linear;
+ 
+}
+@-webkit-keyframes refreshrotate{
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes refreshrotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
