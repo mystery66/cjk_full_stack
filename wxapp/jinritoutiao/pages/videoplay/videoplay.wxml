@@ -20,7 +20,7 @@
             <view class="video-from-middle">
                 
                 <view class="video-from-publisher">{{publisher}}</view>
-                <image class="video-from-icon" src="{{icon}}"></image>
+                <image class="video-from-icon" src=" /images/icon_newsicon.png"></image>
                 <view class="video-from-time">
                   <text class="video-publish-date">6-6</text>
                   <text class="video-publish-detailtime">9:30</text>
