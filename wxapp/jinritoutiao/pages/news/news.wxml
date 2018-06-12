@@ -1,75 +1,71 @@
 <!--pages/news/news.wxml-->
 <scroll-view class="container"scroll-y="true">
-    <view class="main">
-  <view class="news" wx:for="{{news}}" wx:key="{{id}}">
-    <view class="news-title">{{item.header}}</view>
-    <view class="news-info">
-      <view class="news-info-left">
-        <image class="news-from-img" src="{{item.image}}"></image>
-        
+  <view class="main">
+    <view class="news" wx:for="{{news}}" wx:key="{{id}}">
+      <view class="news-title">{{item.header}}</view>
+      <view class="news-info">
+        <view class="news-info-left">
+          <image class="news-from-img" src="{{item.image}}"></image>
         </view>
-      <view class="news-from-middle">
-          
+        <view class="news-from-middle">
           <view class="news-from-publisher">{{item.publisher}}</view>
-          <image class="news-from-icon" src="{{item.icon}}"></image>
-          <view class="news-from-time">
-            <text class="news-publish-date">6-6</text>
-            <text class="news-publish-detailtime">9:30</text>
+            <image class="news-from-icon" src="/images/icon_newsicon.png"></image>
+            <view class="news-from-time">
+              <text class="news-publish-date">6-6</text>
+              <text class="news-publish-detailtime">9:30</text>
+            </view>
           </view>
-        </view>
-      <view class="news-info-right">
+        <view class="news-info-right">
           <view class="fontsize-btn left" bindtap="bigger"> <text>A+</text></view>
           <view class="fontsize-btn right" bindtap="smaller"><text>A-</text> </view>
-           
+        </view>
       </view>
+      <view class="news-content {{adjust?'on':''}}">
+        <text class="news-content-paragraph">{{item.paragraph1}}</text>
+        <image class="news-content-fristimg" src="{{item.images1}}"></image>
+        <text  class="news-content-paragraph">{{item.paragraph2}}</text>
+        <text  class="news-content-paragraph">{{item.paragraph3}}</text>
+        <image class="news-content-fristimg" src="{{item.images2}}"></image>
+        <text  class="news-content-paragraph">{{item.paragraph4}}</text>
+        <image class="news-content-fristimg" src="{{item.images3}}"></image>
+        <text  class="news-content-paragraph">{{item.paragraph5}}</text>
+        <image class="news-content-fristimg" src="{{item.images4}}"></image>
+        <text  class="news-content-paragraph">{{item.paragraph6}}</text>
       </view>
-    <view class="news-content {{adjust?'on':''}}">
-          <text class="news-content-paragraph">{{item.paragraph1}}</text>
-          <image class="news-content-fristimg" src="{{item.images1}}"></image>
-          <text  class="news-content-paragraph">{{item.paragraph2}}</text>
-          <text  class="news-content-paragraph">{{item.paragraph3}}</text>
-          <image class="news-content-fristimg" src="{{item.images2}}"></image>
-          <text  class="news-content-paragraph">{{item.paragraph4}}</text>
-          <image class="news-content-fristimg" src="{{item.images3}}"></image>
-          <text  class="news-content-paragraph">{{item.paragraph5}}</text>
-          <image class="news-content-fristimg" src="{{item.images4}}"></image>
-          <text  class="news-content-paragraph">{{item.paragraph6}}</text>
-
     </view>
-</view>
-<view class="news-comment">
-    <view class="news-comment-tilte">
+    <view class="news-comment">
+      <view class="news-comment-tilte">
             热门评论
+      </view>
+      <view class="news-comment-content" wx:for="{{comment}}" wx:key="{{item.id}}" >
+        <image class="news-comment-userimg" src="{{item.image}}"></image>
+        <view class="news-comment-username">{{item.username}}</view>
+        <view class="news-comment-praise">
+          <block wx:if="{{!haspraise}}">
+            <image class="news-comment-praise-icon" src="/images/icon_praise.png" bindtap="SelectedToPraise" data-id="{{index}}"></image>
+          </block>
+          <block wx:else>
+            <image class="news-comment-praise-icon" src="/images/icon_haspraise.png"></image>
+          </block>
+          <view class="news-comment-num">{{item.num}}</view>
         </view>
-        <view class="news-comment-content" wx:for="{{comment}}" wx:key="{{id}}">
-            <image class="news-comment-userimg" src="{{item.image}}"></image>
-            <view class="news-comment-username">{{item.username}}</view>
-            <view class="news-comment-praise">
-                <image class="news-comment-praise-icon" src="/images/icon_praise.png"></image>
-                <view class="news-comment-num">{{item.num}}</view>
-            </view>
-            <view class="news-comment-usercomment">{{item.usercomment}}</view>
-            <view class="news-comment-time">{{item.time}}</view>
-        </view>
-        <view class="news-comment-nomore">已显示全部评论</view>
-
+        <view class="news-comment-usercomment">{{item.usercomment}}</view>
+        <view class="news-comment-time">{{item.time}}</view>
+      </view>
+      <view class="news-comment-nomore">已显示全部评论</view>
     </view>
     <view class="comment-bar">
-            <view class="comment-bar-left">
-                <image class="comment-bar-icon" src="/images/icon_inputicon.png"></image>
-                <input class="comment-bar-input"type="text" placeholder="写评论..." bindconfirm="addComment" value="{{inputValue}}"/>
-            </view>
-            <view class="comment-bar-right">
-                <image class="comment-bar-img" src="/images/icon_videoicon.png"></image>
-                <image class="comment-bar-img" src="/images/icon_star.png"></image>
-                <image class="comment-bar-img" src="/images/icon_share1.png"></image>
-                <image class="comment-bar-img" src="/images/icon_pyq.png"></image>
-            </view>
-            </view>
-            
-  
-    
- 
-
-</view>   
+      <view class="comment-bar-left">
+        <image class="comment-bar-icon" src="/images/icon_inputicon.png"></image>
+        <input class="comment-bar-input"type="text" placeholder="写评论..." bindconfirm="addComment" value="{{inputValue}}"/>
+      </view>
+      <view class="comment-bar-right">
+        <image class="comment-bar-img" src="/images/icon_videoicon.png"></image>
+        <image class="comment-bar-img" src="/images/icon_star.png"></image>
+        <image class="comment-bar-img" src="/images/icon_share1.png"></image>
+        <image class="comment-bar-img" src="/images/icon_pyq.png"></image>
+        <text class="comment-total-num">{{TotalNum}}</text>
+      </view>
+    </view>
+  </view>   
 </scroll-view>

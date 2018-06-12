@@ -1,12 +1,19 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/videoplay/videoplay",
+   
+    "pages/news/news",
+    "pages/userinfo/userinfo",
+    "pages/search/search",
     "pages/logs/logs"
+   
+    
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#d43d3d",
     "navigationBarTitleText": "今日头条",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   }
 }

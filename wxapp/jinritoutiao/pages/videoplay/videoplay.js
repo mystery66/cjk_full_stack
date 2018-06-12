@@ -8,7 +8,7 @@ Page({
     image: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2729126594,811067681&fm=27&gp=0.jpg',
    
     publisher: '乐娱网',
-    video: 'http://v11-tt.ixigua.com/1fe8ebd438ea927b72b47814a86fa347/5b1eabdf/video/m/220b8a858ea3cc94d2db79b27f93d2c8fed1157f5aa00003455e557d37a/',
+    video: 'http://v3-tt.ixigua.com/8e2a95837db1c2e973c097b098a572af/5b1ff294/video/m/220b8a858ea3cc94d2db79b27f93d2c8fed1157f5aa00003455e557d37a/',
    comment: [{
     image: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3738611942,2062433065&fm=27&gp=0.jpg',
     username: 'Hello World',

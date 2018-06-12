@@ -110,15 +110,16 @@ Page({
     let topbar = this.data.topbar;
     var item = e.currentTarget.dataset.item; 
     console.log(item);
-    topbar.push((addchannel.splice(item,1))[0]);
+   
     // console.log(topbar);
-     console.log(addchannel);
+    //  console.log(addchannel);
     // console.log((addchannel.splice(index,1))[0])
     wx.showModal({
       title: '提示',
       content: '是否添加此频道',
       success: (res) => {
         if (res.confirm) {
+          topbar.push((addchannel.splice(item,1))[0]);
           this.setData({
             topbar,
             addchannel

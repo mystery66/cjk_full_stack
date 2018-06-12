@@ -194,3 +194,18 @@
   overflow:visible;
 
 }
+.comment-total-num {
+ position:absolute;
+ z-index:9;
+ top:25rpx;
+ left:440rpx;
+ display:inline-block;
+ font-size:18rpx;
+ background-color: red;
+ color:#fff;
+ text-align:center;
+ padding:4rpx 14rpx;
+ border-radius:20rpx;
+ line-height:1.2;
+
+}
