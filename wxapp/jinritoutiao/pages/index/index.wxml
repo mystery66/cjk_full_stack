@@ -25,16 +25,16 @@
       <view class="addchannel" hidden="{{hidden}}">
         <view class="back" bindtap="returnIndex"><image src="/images/icon_back.png"></image></view>
         <scroll-view class="channel-scroll"scroll-y="true" scrollTop="{{scrollTop}}"  >
-        <view class="channel-description">我的频道 <text>选中不放可以拖拽顺序</text></view>
-        <view class="channel-choose" wx:for="{{topbar}}" wx:key="{{index}}" data-index="{{index}}"  bindtap="minusChannelTitle" ><text>{{item.text}}</text></view>
-        <view class="otherchannel-add">
-          <view class="channel-description other">其他频道 <text>点击添加频道</text></view>
-          <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{id}}" data-item="{{index}}"  bindtap="addChannelTitle" >
-            <text>+{{item.text}}</text>
+          <view class="channel-description">我的频道 <text>选中不放可以拖拽顺序</text></view>
+          <view class="channel-choose" wx:for="{{topbar}}" wx:key="{{index}}" data-index="{{index}}"  bindtap="minusChannelTitle" ><text>{{item.text}}</text></view>
+          <view class="otherchannel-add">
+            <view class="channel-description other">其他频道 <text>点击添加频道</text></view>
+            <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{id}}" data-item="{{index}}"  bindtap="addChannelTitle" >
+              <text>+{{item.text}}</text>
+            </view>
           </view>
-        </view>
-      </scroll-view>
-    </view>
+        </scroll-view>
+      </view>
     <swiper class="swiper-channel-content"  duration="{{duration}}" circular="{{Circular}}" bindchange="onSwiperChange" current="{{swiperActiceIndex}}">
       <swiper-item >
         <scroll-view class="ariticles" scroll-y="true">
