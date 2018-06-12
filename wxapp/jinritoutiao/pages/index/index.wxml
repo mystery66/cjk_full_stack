@@ -1,13 +1,13 @@
 <view class="container">
    <view class="topbar">
-        <view class="topbar-icon left" bindtap="searchInfo">
-            <image class="topbar-icon__img" src="/images/icon_search.png"></image>
-       </view>
-        <scroll-view class="topbar-scroll"scroll-x="true" >
-            <view class="topbar-scroll-item {{curIndex === index?'on':''}}" wx:for="{{topbar}}" 
-             wx:key="{{id}}"bindtap="Selected" data-index="{{index}}">
-                <view class="topbar-item-wrap">{{item.text}}</view>
-            </view>
+      <view class="topbar-icon left" bindtap="searchInfo">
+        <image class="topbar-icon__img" src="/images/icon_search.png"></image>
+      </view>
+      <scroll-view class="topbar-scroll"scroll-x="true" >
+        <view class="topbar-scroll-item {{curIndex === index?'on':''}}" wx:for="{{topbar}}" 
+          wx:key="{{id}}"bindtap="Selected" data-index="{{index}}">
+          <view class="topbar-item-wrap">{{item.text}}</view>
+        </view>
             <!-- <view class="topbar-item-block">
               <view>空白</view>
               <text>空白</text> -->
@@ -21,74 +21,72 @@
             <image class="topbar-icon__img" src="/images/icon_info.png"></image>
           </view>
         </view>
-    </view>
-    <view class="addchannel" hidden="{{hidden}}">
-      <view class="back" bindtap="returnIndex"><image src="/images/icon_back.png"></image></view>
-      <scroll-view class="channel-scroll"scroll-y="true" scrollTop="{{scrollTop}}"  >
+      </view>
+      <view class="addchannel" hidden="{{hidden}}">
+        <view class="back" bindtap="returnIndex"><image src="/images/icon_back.png"></image></view>
+        <scroll-view class="channel-scroll"scroll-y="true" scrollTop="{{scrollTop}}"  >
         <view class="channel-description">我的频道 <text>选中不放可以拖拽顺序</text></view>
         <view class="channel-choose" wx:for="{{topbar}}" wx:key="{{index}}" data-index="{{index}}"  bindtap="minusChannelTitle" ><text>{{item.text}}</text></view>
         <view class="otherchannel-add">
-            <view class="channel-description other">其他频道 <text>点击添加频道</text></view>
-            <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{id}}" data-item="{{index}}"  bindtap="addChannelTitle" >
-               <text>+{{item.text}}</text>
-            </view>
-      </view>
+          <view class="channel-description other">其他频道 <text>点击添加频道</text></view>
+          <view class="channel-choose" wx:for="{{addchannel}}" wx:key="{{id}}" data-item="{{index}}"  bindtap="addChannelTitle" >
+            <text>+{{item.text}}</text>
+          </view>
+        </view>
       </scroll-view>
     </view>
-      
-      <swiper class="swiper-channel-content"  duration="{{duration}}" circular="{{Circular}}" bindchange="onSwiperChange" current="{{swiperActiceIndex}}">
-        
-        <swiper-item >
-         <scroll-view class="ariticles" scroll-y="true">
-           <view class="ariticle-detail" wx:for="{{Recommend}}" wx:key="{{item.id}}" bindtap="toSeeNews">
-             <view class="ariticle-detail-left">
-               <view class="ariticle-detail-title">{{item.title}}</view>
-               <view class="ariticle-detail-others">
+    <swiper class="swiper-channel-content"  duration="{{duration}}" circular="{{Circular}}" bindchange="onSwiperChange" current="{{swiperActiceIndex}}">
+      <swiper-item >
+        <scroll-view class="ariticles" scroll-y="true">
+          <view class="ariticle-detail" wx:for="{{Recommend}}" wx:key="{{item.id}}" bindtap="toSeeNews">
+            <view class="ariticle-detail-left">
+              <view class="ariticle-detail-title">{{item.title}}</view>
+              <view class="ariticle-detail-others">
                <text class="ariticle-detail-type">{{item.type}}</text>
                <text class="ariticle-detail-from">{{item.from}}</text>
                <text class="ariticle-detail-num">{{item.num}}</text>
               </view>
-             </view> 
-             <view class="ariticle-detail-right">
+            </view> 
+            <view class="ariticle-detail-right">
               <image class="ariticle-detail-image" src="{{item.image}}"></image>
-             </view>
             </view>
+          </view>
         </scroll-view>
-        </swiper-item>
-        <swiper-item >
-          <scroll-view class="ariticles" scroll-y="true">
-            <view class="ariticle-detail" wx:for="{{Hot}}" wx:key="{{item.id}}" >
-              <view class="ariticle-detail-left">
-                <view class="ariticle-detail-title">{{item.title}}</view>
-                <view class="ariticle-detail-others">
-                <text class="ariticle-detail-type">{{item.type}}</text>
-                <text class="ariticle-detail-from">{{item.from}}</text>
-                <text class="ariticle-detail-num">{{item.num}}</text>
-                </view>
-              </view> 
-              <view class="ariticle-detail-right">
-                <image class="ariticle-detail-image"  src="{{item.image}}"></image>
+      </swiper-item>
+      <swiper-item >
+        <scroll-view class="ariticles" scroll-y="true">
+          <view class="ariticle-detail" wx:for="{{Hot}}" wx:key="{{item.id}}" >
+            <view class="ariticle-detail-left">
+              <view class="ariticle-detail-title">{{item.title}}</view>
+              <view class="ariticle-detail-others">
+              <text class="ariticle-detail-type">{{item.type}}</text>
+              <text class="ariticle-detail-from">{{item.from}}</text>
+              <text class="ariticle-detail-num">{{item.num}}</text>
+              </view>
+            </view> 
+            <view class="ariticle-detail-right">
+              <image class="ariticle-detail-image"  src="{{item.image}}"></image>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item >
+        <scroll-view class="video" scroll-y="true">
+          <view class="videoplay" wx:for="{{video}}" wx:key="{{item.id}}" bindtap="videoplay">
+            <image class="videoplay-img"    src="{{item.image}}"></image>
+            <view class="videoplay-info" wx:for="{{item.detail}}" wx:key="{{item.id}}">
+              <view class="videoplay-info-left" >
+                <image class="videoplay-info-img" src="{{item.image}}"></image>
+                <text class="videoplay-info-publisher">{{item.from}}</text>
+              </view>
+              <view class="videoplay-info-right">
+                <text class="videoplay-info-playback">{{item.playback}}</text>
+                <image class="videoplay-info-icon" src="{{item.icon}}"></image>
+                <text class="videoplay-info-num">{{item.num}}</text>
               </view>
             </view>
-           </scroll-view>
-           </swiper-item>
-        <swiper-item >
-          <scroll-view class="video" scroll-y="true">
-            <view class="videoplay" wx:for="{{video}}" wx:key="{{item.id}}" bindtap="videoplay">
-              <image class="videoplay-img"    src="{{item.image}}"></image>
-              <view class="videoplay-info" wx:for="{{item.detail}}" wx:key="{{item.id}}">
-                <view class="videoplay-info-left" >
-                  <image class="videoplay-info-img" src="{{item.image}}"></image>
-                  <text class="videoplay-info-publisher">{{item.from}}</text>
-                </view>
-                <view class="videoplay-info-right">
-                  <text class="videoplay-info-playback">{{item.playback}}</text>
-                  <image class="videoplay-info-icon" src="{{item.icon}}"></image>
-                  <text class="videoplay-info-num">{{item.num}}</text>
-                </view>
-              </view>
-            </view>
-          </scroll-view>
+          </view>
+        </scroll-view>
       </swiper-item>
     </swiper>
     <view class="refresh">

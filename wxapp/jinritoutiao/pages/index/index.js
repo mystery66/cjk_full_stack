@@ -134,16 +134,17 @@ Page({
   minusChannelTitle(e) {
     // console.log(e);
     console.log(e);
-    let addchannel = this.data.addchannel;
-    let topbar = this.data.topbar;
-    var index = e.currentTarget.dataset.index; 
+     var index = e.currentTarget.dataset.index; 
+     if ( index == 0) {
+     console.log('禁止移除该项')
+    } else {
+      let addchannel = this.data.addchannel;
+      let topbar = this.data.topbar;
+      var index = e.currentTarget.dataset.index; 
     // console.log(index);
     addchannel.push((topbar.splice(index,1))[0]);
     // console.log(topbar);
     console.log(addchannel);
-    if ( index == 0) {
-      return false;
-    } else {
       wx.showModal({
         title: '提示',
         content: '是否删除此频道',
