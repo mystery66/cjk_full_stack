@@ -38,7 +38,7 @@ page {
 }
 
 
-.main .nickname{
+.userinfo-nickname{
   margin-left: 30rpx;
   line-height: 220rpx;
   

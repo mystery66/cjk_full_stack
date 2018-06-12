@@ -14,18 +14,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+   
     wx.getUserInfo({
       success: res => {
+        console.log(res)
         app.globalData.userInfo = res.userInfo
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+        
         })
+        
       }
     })
     
+    
   },
-
+  
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
