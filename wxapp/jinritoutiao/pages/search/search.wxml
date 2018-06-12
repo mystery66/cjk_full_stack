@@ -1,31 +1,29 @@
 <!--pages/search/search.wxml-->
 <view class="container">
-    <view class="weui__hd">
-        <view class="weui-search-bar__box">
-            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-            <input type="text" class="weui-search-bar__input" placeholder="请输入关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="bindInput" />
-        </view>
-        <view class="weui-cancel__search" bindtap="cancel">取消</view>
+  <view class="weui__hd">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="bindInput" />
     </view>
-    <view class="weui__bd" hidden="{{historyInfo.length == 0}}" >
-        <view class="weui-history">
-            <view class="weui-history__left">删除历史</view>
-            <image class="weui-history__right" src="/images/icon_delete.png" bindtap="deleteHistory"></image>
-        </view>
-        <view class="weui-search-history" >{{historyInfo}}</view>
-        
+    <view class="weui-cancel__search" bindtap="cancel">取消</view>
+  </view>
+  <view class="weui__bd" hidden="{{historyInfo.length == 0}}" >
+    <view class="weui-history">
+      <view class="weui-history__left">删除历史</view>
+      <image class="weui-history__right" src="/images/icon_delete.png" bindtap="deleteHistory"></image>
     </view>
-    
-    <view class="weui__ft">
-        <view class="weui-hotwords">
-            <text class="title">搜索热词</text>
-        </view>
-        <view class="weui-list-text">
-            <view class="list-item {{index%2 ===0?'event':'odd'}}" wx:for="{{hotwords}}" wx:key="{{index}}">
-                <view class="list-item-text">
-                    {{item.text}}
-                </view>
-            </view>
-        </view>
+    <view class="weui-search-history" >{{historyInfo}}</view>
+   </view>
+  <view class="weui__ft">
+    <view class="weui-hotwords">
+      <text class="title">搜索热词</text>
     </view>
+    <view class="weui-list-text">
+      <view class="list-item {{index%2 ===0?'event':'odd'}}" wx:for="{{hotwords}}" wx:key="{{index}}">
+        <view class="list-item-text" data-item="{{index}}" bindtap="Tosearch">
+            {{item.text}}
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

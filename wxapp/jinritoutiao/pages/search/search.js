@@ -85,6 +85,18 @@ deleteHistory (e) {
       }
     })
   },
+  Tosearch(e) {
+   console.log(e);
+  var item = e.currentTarget.dataset.item;
+  const text = this.data.hotwords[item].text;
+  let inputVal = this.data.inputVal;
+  inputVal = text ;
+  this.setData({
+    inputVal
+  })
+
+
+  },
   onLoad: function (options) {
   
   },
