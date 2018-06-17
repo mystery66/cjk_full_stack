@@ -1,0 +1,62 @@
+.news-comment {
+    margin: 0 30rpx;
+    padding-top: 30rpx;
+    overflow: hidden;
+}
+.news-comment-tilte {
+    padding-left: 10rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 10pt;
+    color: #999999;
+    border-left: 3px solid #d43d3d;
+}
+.news-comment-content {
+    margin-top: 50rpx;
+    
+}
+
+.news-comment-userimg {
+    width: 70rpx;
+    height: 70rpx;
+    
+    border-radius: 50%;
+}
+.news-comment-username {
+    font-size: 10pt;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20rpx;
+    color: #406599;
+}
+.news-comment-praise{
+   
+    float: right;
+}
+.news-comment-praise-icon {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
+    
+}
+.news-comment-num {
+    display: inline-block;
+    font-size: 10pt;
+    color: #979fac;
+    margin-right: 10rpx;
+}
+.news-comment-usercomment {
+   font-size: 11pt;
+   margin-left: 100rpx;
+   margin-right: 60rpx;
+}
+.news-comment-time {
+    font-size: 9pt;
+    margin-left: 100rpx;
+    margin-top: 20rpx;
+}
+.news-comment-nomore {
+    margin: 20rpx 0 150rpx 100rpx;
+    font-size: 10pt;
+    color: #999999;
+}    

@@ -1,0 +1,23 @@
+<template name="newscomment">
+   <view class="news-comment">
+      <view class="news-comment-tilte">
+            热门评论
+      </view>
+      <view class="news-comment-content" wx:for="{{comment}}" wx:key="{{item.id}}" >
+        <image class="news-comment-userimg" src="{{item.image}}"></image>
+        <view class="news-comment-username">{{item.username}}</view>
+        <view class="news-comment-praise">
+          <block wx:if="{{!haspraise}}">
+            <image class="news-comment-praise-icon" src="/images/icon_praise.png" bindtap="SelectedToPraise" data-id="{{index}}"></image>
+          </block>
+          <block wx:else>
+            <image class="news-comment-praise-icon" src="/images/icon_haspraise.png"></image>
+          </block>
+          <view class="news-comment-num">{{item.num}}</view>
+        </view>
+        <view class="news-comment-usercomment">{{item.usercomment}}</view>
+        <view class="news-comment-time">{{item.time}}</view>
+      </view>
+      <view class="news-comment-nomore">已显示全部评论</view>
+    </view> 
+</template>

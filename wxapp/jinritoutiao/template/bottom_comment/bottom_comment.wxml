@@ -1,0 +1,15 @@
+<template name="bottomcomment">
+    <view class="comment-bar">
+      <view class="comment-bar-left">
+        <image class="comment-bar-icon" src="/images/icon_inputicon.png"></image>
+        <input class="comment-bar-input"type="text" placeholder="写评论..." bindconfirm="addComment" value="{{inputValue}}"/>
+      </view>
+      <view class="comment-bar-right">
+        <image class="comment-bar-img" src="/images/icon_videoicon.png"></image>
+        <image class="comment-bar-img" src="/images/icon_star.png"></image>
+        <image class="comment-bar-img" src="/images/icon_share1.png"></image>
+        <image class="comment-bar-img" src="/images/icon_pyq.png"></image>
+        <text class="comment-total-num">{{TotalNum}}</text>
+      </view>
+    </view>
+</template>

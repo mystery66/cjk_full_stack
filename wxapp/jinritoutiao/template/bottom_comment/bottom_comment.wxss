@@ -1,0 +1,64 @@
+.comment-bar {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #dcdcdc;
+    width: 100%;
+    z-index: 100;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 15rpx 25rpx;
+}
+.comment-bar-left {
+    float: left;
+    width: 300rpx;
+    background-color: #f4f5f6;
+    border-radius: 35rpx;
+    font-size: 10pt;
+    padding: 10rpx 20rpx;
+    border: 1px solid #eaeaea;
+    
+}
+.comment-bar-icon {
+    width: 40rpx;
+    height: 40rpx;
+    display: inline-block;
+   
+   
+}
+.comment-bar-input {
+    display: inline-block;
+     width: 240rpx;
+}
+.comment-bar-right {
+  float: right;
+  padding-right:20rpx;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
+  
+
+}
+.comment-bar-right image {
+  width:50rpx;
+  height:50rpx;
+  display:block;
+  float:left;
+  margin-left:20rpx;
+  margin-right:23rpx;
+  overflow:visible;
+
+}
+.comment-total-num {
+   position:absolute;
+   z-index:9;
+   top:25rpx;
+   left:440rpx;
+   display:inline-block;
+   font-size:18rpx;
+   background-color: red;
+   color:#fff;
+   text-align:center;
+   padding:4rpx 14rpx;
+   border-radius:20rpx;
+   line-height:1.2;
+
+}
