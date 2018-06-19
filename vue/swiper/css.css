@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+.r-swiper-out {
+  position: relative;
+  overflow: hidden;
+}
+.r-swiper-out-item {
+  padding: 1em;
+  height: 64px;
+  background: #f5f5f5;
+}
+.r-swiper-out-item-content {
+  width: 100%;
+  text-align: center;
+}
+.r-swiper-out-item-btns {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  top: 0;
+  padding: 1em;
+  height: 64px;
+  background: #f00;
+  transform: translateX(100%);
+}
