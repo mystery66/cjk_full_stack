@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- VUE 是MVVM 
+  data-binding 
+  template compile -->
+  <!-- 支持对{{}}解析， template compile 
+  template -> html 
+  {{key}} data {name:'喻顺武'}  回填
+  1 打坑 2 填值 -->
+  <div id="app"><h3>姓名</h3>
+    <p>我的名字是{{name}}</p>
+    <h3>年龄</h3>
+    <p>{{age}}</p>
+    <div class="msg">
+      <p>
+        {{msg}}
+      </p>
+    </div>
+  </div>
+  <script>
+  class Vue {
+    constructor (opt) {
+      this.opt = opt;
+      this.root = document.querySelector(this.opt.el);
+       console.log(this.root);
+      this.compile(this.root);
+    }
+    compile (node) {
+      // {{.*}}
+      // 遍历结点， 文本结点
+      [].forEach.call(node.childNodes, child => {  //forEach方法中的function回调有三个参数：第一个参数是遍历的数组内容，第二个参数是对应的数组索引，第三个参数是数组本身
+          //只有{{}}才需要去做 正则
+         console.log(child.innerHTML);
+        // 子节点下面有没有孙节点， 第一个子节点
+        if(!child.firstElementChild && /\{\{(.*)\}\}/.test(child.innerHTML)) {   // .匹配任何字符  *匹配多次或0次 
+            // RegExpObject.test()  正则匹配
+            let key = RegExp.$1.trim();   //RegExp.$1是RegExp的一个属性,指的是与正则表达式匹配的第一个 也就是（.*）
+              // console.log(RegExp.$1)   
+            //  console.log(child.innerHTML);
+            // console.log(this.opt.data[key]);
+            // console.log(child.innerHTML);
+            child.innerHTML = child.innerHTML.replace(/\{\{(.*)\}\}/,this.opt.data[key]); //[key] 变量 常量 .key
+        //    replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+        }  else if (child.firstElementChild) {
+            this.compile(child);
+        }
+      })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    // 快一点, 
+    let options = {
+      el: '#app',
+      data: {
+        name: '检索中...',
+        age: 30,
+        msg: 'vue 高手， 月薪5万'
+      }
+    }
+    new Vue(options)
+  });
+  
+  </script>
+</body>
+</html>
