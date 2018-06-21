@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-on 实例</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<h1>v-on 实例</h1>
+<p>v-on:click 可简写为@click</p>
+<hr>
+<div id="app">
+  本场比赛得分： {{score}}
+  <p>
+    <button @click="addScore">加分</button>
+    <button @click="downScore">加分</button><br>
+    <input type="text" @keyup.enter="onEnter" v-model="score1">
+  </p>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      score: 0,
+      score1: 1,
+    },
+    methods: {
+      addScore() {
+        this.score++;
+      },
+      downScore() {
+        if (this.score == 0) {
+          return alert('得分不能为负数');
+        }  
+         else { this.score--; }
+      },
+      onEnter() {
+        this.score= this.score + parseInt(this.score1);
+      }
+    }
+  })
+
+</script>
+<body>
+  
+</body>
+</html>

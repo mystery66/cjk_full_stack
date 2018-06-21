@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for 实例</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+  <h1>v-for 实例</h1>
+  <hr>
+  <div id="app">
+    <ul>
+      <li v-for="item in sortitems">{{item}}</li>
+    </ul>
+  
+  <hr>
+  <ul>
+    <li v-for="(student,index) in sortStudents">
+      {{index+1}}:{{student.name}} - {{student.age}} 
+    </li>
+  </ul>
+</div>
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    items: [21,43,76,54,98,2,54,8,67],
+    students: [
+      {name: 'cjk', age: 18},
+      {name: 'xxf', age: 28},
+      {name: 'zk', age: 15},
+      {name: 'wcm', age: 20},
+    ]
+  },
+  computed: {
+   sortitems() {
+       return this.items.sort(sortNumber);  //sort对原数组排序不生成副本 按照字符编码的顺序排序 
+      //  如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。
+      // 比较函数应该具有两个参数 a 和 b，其返回值如下：
+        // 若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。
+        // 若 a 等于 b，则返回 0。
+        // 若 a 大于 b，则返回一个大于 0 的值。
+        
+   },
+   sortStudents(){
+      
+     return sortByKey(this.students,'age'); 
+   }
+  },
+  
+  
+});
+// console.log(app.items);
+function sortNumber(a,b) {
+  return a-b;
+};
+function sortByKey(arry,key) {
+  return arry.sort(function(a,b) {
+    var x= a[key];
+    var y= b[key];
+    console.log(x,y)
+    return  x - y;     //((x<y) ? - 1 : ((x>y) ? 1 : 0));
+  })
+}
+</script>
+</body>
+</html>
