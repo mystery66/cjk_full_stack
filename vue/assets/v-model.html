@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model 实例</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+  <h1 style="color: darkorchid">v-model 实例</h1>
+  <hr>
+  <div id="app">
+    <p>原文本信息：{{message}}hello world!</p><br>
+    <h3>文本输入框</h3>
+    <p>v-model:<input type="text" v-model="message"></p>
+    <p>v-mode-lazy:<input type="text" v-model.lazy="message"></p>
+    <p>v-model-number:<input type="text" v-model.number="message"></p>
+    <p>v-model-trim:<input type="text" v-model.trim="message"></p>
+    <p>v-model-lazy 懒加载 当鼠标离开文本框是数据才会同步</p><br>
+    <p>v-model-number: 当文本框一开始输入数字，之后输入其他东西无效不会同步 如果开始输入的不是数字 然后输入数字  数据会同步</p><br>
+    <p>v-mode-trim: 去除空格 输入空格无效 数据不会同步  不严谨</p>
+    <hr>
+    <h3>文本域</h3>
+    <textarea v-model="message" id="" cols="30" rows="10"></textarea>
+    <hr>
+    <h3>多选框一个值</h3>
+    <input type="checkbox" id="isTrue" v-model="isTrue">
+    <label for="isTrue">{{isTrue}}</label>
+    <hr>
+    <h3>多选框绑定数组</h3>
+    <p>
+      <input type="checkbox" id="cjk" value="cjk" v-model="web_name">
+      <label for="cjk">cjk</label>
+      <input type="checkbox" id="wcm" value="wcm" v-model="web_name">
+      <label for="wcm">wcm</label>
+      <input type="checkbox" id="xxf" value="xxf" v-model="web_name">
+      <label for="xxf">xxf</label>
+      <input type="checkbox" id="xzf" value="xzf" v-model="web_name">
+      <label for="xzf">xzf</label>
+    </p>
+    <p>您选择了：{{web_name}}</p>
+    <hr>
+    <h3>单选框绑定</h3>
+    <input type="radio" id="man" value="男" v-model="sex">
+    <label for="man">男</label>
+    <input type="radio" id="female" value="女" v-model="sex">
+    <label for="man">女</label>
+    <p>您选择的性别是：{{sex}}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: '你好！',
+        isTrue: true,
+        web_name: [],
+        sex: ''
+      }
+    })
+  </script>
+</body>
+</html>
